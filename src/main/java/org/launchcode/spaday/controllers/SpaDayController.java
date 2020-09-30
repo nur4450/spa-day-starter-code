@@ -1,5 +1,6 @@
 package org.launchcode.spaday.controllers;
 
+import org.launchcode.spaday.models.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,39 +11,12 @@ import java.util.ArrayList;
 @Controller
 public class SpaDayController {
 
-    public boolean checkSkinType(String skinType, String facialType) {
-        if (skinType.equals("oily")) {
-            if (facialType.equals("Microdermabrasion") || facialType.equals("Rejuvenating")) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        else if (skinType.equals("combination")) {
-            if (facialType.equals("Microdermabrasion") || facialType.equals("Rejuvenating") || facialType.equals("Enzyme Peel")) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        else if (skinType.equals("normal")) {
-            return true;
-        }
-        else if (skinType.equals("dry")) {
-            if (facialType.equals("Rejuvenating") || facialType.equals("Hydrofacial")) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        else {
-            return true;
-        }
+    @GetMapping
+    public String displayClientForm (Model model) {
+        return "serviceSelection";
     }
 
+<<<<<<< HEAD
     @GetMapping(value="")
     @ResponseBody
     public String customerForm () {
@@ -88,6 +62,14 @@ public class SpaDayController {
         model.addAttribute("appropriateFacials",appropriateFacials);
         model.addAttribute("facials",facials);
 
+=======
+    @PostMapping
+    public String processClientForm(@RequestParam String skintype, @RequestParam String manipedi, Model model) {
+        Client newClient = new Client(skintype, manipedi);
+        newClient.setAppropriateFacials(skintype);
+        model.addAttribute("client" , newClient);
+
+>>>>>>> 41bafc8e5f2053ddff4668047ba80efb619a4da2
         return "menu";
     }
 }
