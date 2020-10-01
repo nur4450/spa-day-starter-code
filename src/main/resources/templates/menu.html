@@ -8,24 +8,6 @@
 <body>
 <h1>My Super Fancy Spa</h1>
 <div id = "clientProfile">
-<<<<<<< HEAD
-    <h2>My profile</h2>
-    <p th:text="${name}"></p>
-    <p th:text="${skintype}"></p>
-    <p th:text="${manipedi}"></p>
-</div>
-<div id = "servicesMenu">
-    <h1>Menu of Available Services</h1>
-    <tr>
-        <th>Facial Treatments</th>
-    </tr>
-    <table>
-        <th:block th:each="facial : ${appropriateFacials}">
-            <h3 th:text="${facial}"></h3>
-        </th:block>
-    </table>
-    <div th:if="${manipedi == 'manicure'}">
-=======
     <h2>My Profile</h2>
     <p th:text = "${client.skinType}"></p>
     <p th:text = "${client.nailService}"></p>
@@ -44,17 +26,12 @@
         </table>
     </div>
     <div th:if = "${client.nailService == 'manicure'}">
->>>>>>> 41bafc8e5f2053ddff4668047ba80efb619a4da2
         <h3>Manicure</h3>
-        <p th:replace="fragments :: manicureDescription"></p>
+        <p th:replace =  "fragments :: manicureDescription"></p>
     </div>
-<<<<<<< HEAD
-    <div th:if="${manipedi == 'pedicure'}">
-=======
     <div th:if = "${client.nailService == 'pedicure'}">
->>>>>>> 41bafc8e5f2053ddff4668047ba80efb619a4da2
         <h3>Pedicure</h3>
-        <p th:replace="fragments :: pedicureDescription"></p>
+        <p th:replace = "fragments :: pedicureDescription"></p>
     </div>
 </div>
 </body>
